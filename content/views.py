@@ -25,3 +25,13 @@ def editDatabaseEntry(request, content_id):
     content.note=request.POST['note']
     content.save()
     return HttpResponseRedirect('/content')
+
+#create a new database editDatabaseEntry
+def newDatabaseEntry(request, contend_id):
+    content=get_object_or_404(ContentPiece, pk=content_id)
+    content.title=request.POST['title']
+    content.note=request.POST['note']
+    conent.author=request.POST['author']
+    content.tags=request.POST['tags']
+    content.save()
+    return HttpResponseRedirect('/content')
