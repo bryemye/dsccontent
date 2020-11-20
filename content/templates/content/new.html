@@ -1,0 +1,48 @@
+<html>
+<head>
+
+  <title>Detroit Sponge Content Portal</title>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container"><div class="row"><div class="col">
+      <h1>
+  Detroit Sponge Content Portal</h1>
+  <p>Create a new record.</p>
+  </div>
+  </div>
+  <div class="row">
+    <div class="col-sm">
+      <form action="{% url 'editDatabaseEntry' content.id %}" method="post">
+        {% csrf_token %}
+        <div class="form-group-inline">
+          <label for="content_id_formbox"class ="form-control-inline">Content ID</label>
+
+      <input class="form-control-inline" type="text" value="{{content.id}}" id="content_id_formbox" disabled />
+</div>
+<div class-form-group-inline">
+      <label for="content_author_formbox" class ="form-control-inline">Author</label>
+
+  <input class="form-control-inline" type="text" value="{{content.author}}" id="content_author_formbox" disabled />
+
+</div>
+      <div class="form-group">
+        <label for="content_title_formbox">What is it?</label>
+        <input class="form-control" type="text" name="title" value="{{content.title}}" id="content_title_formbox"/></div>
+        <div class="form-group">
+          <label for="content_note_formbox">Where is it? Other notes?</label>
+        <textarea name="note" rows="8" cols="80" class="form-control" id="content_note_formbox">{{content.note}}</textarea></div>
+        <div class="form-group">
+        <button class="btn btn-primary" type="submit">Save Changes</button>
+        <button class="btn btn-secondary" type="button">Cancel</button>
+      </div>
+        </div>
+      </form
+    </div>
+    <div class="col-sm">Coming Soon!</div>
+</div>
+</div>
+  </body>
+    </html>
