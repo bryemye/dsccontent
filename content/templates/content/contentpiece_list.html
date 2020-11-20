@@ -1,0 +1,41 @@
+<html>
+<head>
+
+  <title>Detroit Sponge Content Portal</title>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+      <h1>
+  Detroit Sponge Content Portal</h1>
+  <p>Behold: output!</p>
+  {% if object_list %}
+
+    <table class="table">
+      <thead class="thead-light">
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Author</th>
+      <th scope="col">Tags</th>
+    </tr>
+  </thead>
+  <tbody>
+      {% for content in object_list %}
+      <tr>
+        <td><a href="edit/{{content.id}}">{{content.title}}</a></td>
+        <td>{{content.quantity}}</td>
+        <td>{{content.author}}</td>
+        <td>Coming Soon!</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+    </table>
+  </div>
+  {% else %}
+      <p>No output is available.</p>
+  {% endif %}
+  </body>
+    </html>

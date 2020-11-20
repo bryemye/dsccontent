@@ -1,0 +1,31 @@
+<html>
+<head>
+
+  <title>Detroit Sponge Content Portal</title>
+<style>
+  body{
+    background-color:#000;
+    color:white;
+    font-family:Arial;
+  }
+  </style>
+</head>
+<body><h1>
+  Detroit Sponge Content Portal</h1>
+  <p>Behold: the output!</p>
+  {% if latest_posts_tdst %}
+    <table class="table"
+      {% for content in latest_posts_tdst %}
+      <tr>
+          <td>{{content.title}}</td>
+          <td>{{content.quantity}}</td>
+          <td>{{content.authorId}}</td>
+          <td>{{content.id}}</td>
+      </tr>
+      {% endfor %}
+      </table>
+  {% else %}
+      <p>No output is available.</p>
+  {% endif %}
+  </body>
+    </html>
