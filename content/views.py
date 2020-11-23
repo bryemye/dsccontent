@@ -2,6 +2,8 @@ from django.views.generic import ListView
 from django.http import HttpResponseRedirect, HttpResponse
 from content.models import ContentPiece, Author
 from django.shortcuts import render, get_object_or_404
+from django.forms import ModelForm
+
 
 class ContentList(ListView):
     model = ContentPiece
@@ -23,15 +25,22 @@ def editDatabaseEntry(request, content_id):
     content=get_object_or_404(ContentPiece, pk=content_id)
     content.title=request.POST['title']
     content.note=request.POST['note']
+    content.author=request.POST['author']
     content.save()
     return HttpResponseRedirect('/content')
 
+
+
+
+#using a model forms
+class NewContentForm(ModelForm):
+    class Meta:
+        model=ContentPiece
+        fields=['author', 'title', 'note']
+
 #create a new database editDatabaseEntry
-def newDatabaseEntry(request, contend_id):
-    content=get_object_or_404(ContentPiece, pk=content_id)
-    content.title=request.POST['title']
-    content.note=request.POST['note']
-    conent.author=request.POST['author']
-    content.tags=request.POST['tags']
+def newDatabaseEntry(request):
+
+    content=NewContentForm(request.POST)
     content.save()
     return HttpResponseRedirect('/content')
