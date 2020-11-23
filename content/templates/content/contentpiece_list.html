@@ -11,7 +11,10 @@
       <h1>
   Detroit Sponge Content Portal</h1>
   <p>Behold: output!</p>
-<button class="btn btn-secondary" type="button" onclick="location.href='new/'">New Content</button>
+<form action="{% url 'newDatabaseEntry' %}" method="post">
+  {% csrf_token %}
+<button class="btn btn-secondary" type="submit">New Content here</button>
+</form>
   {% if object_list %}
 
     <table class="table">

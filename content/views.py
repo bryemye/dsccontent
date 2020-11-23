@@ -30,17 +30,9 @@ def editDatabaseEntry(request, content_id):
     return HttpResponseRedirect('/content')
 
 
-
-
-#using a model forms
-class NewContentForm(ModelForm):
-    class Meta:
-        model=ContentPiece
-        fields=['author', 'title', 'note']
-
 #create a new database editDatabaseEntry
 def newDatabaseEntry(request):
 
-    content=NewContentForm(request.POST)
+    content=ContentPiece()
     content.save()
-    return HttpResponseRedirect('/content')
+    return HttpResponseRedirect('/content/edit/'+str(content.id))
