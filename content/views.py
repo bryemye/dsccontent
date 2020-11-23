@@ -35,4 +35,4 @@ def newDatabaseEntry(request):
 
     content=ContentPiece()
     content.save()
-    return HttpResponseRedirect('/content/edit/'+str(content.id))
+    return HttpResponseRedirect('/content/edit/'+str(content.id), str(content.id))
