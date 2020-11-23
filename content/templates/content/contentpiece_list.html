@@ -15,6 +15,7 @@
   {% csrf_token %}
 <button class="btn btn-secondary" type="submit">New Content here</button>
 </form>
+  {% if object_list %}
 
     <table class="table">
       <thead class="thead-light">
@@ -35,5 +36,8 @@
   </tbody>
     </table>
   </div>
+  {% else %}
+      <p>No output is available.</p>
+  {% endif %}
   </body>
     </html>
